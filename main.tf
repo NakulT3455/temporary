@@ -1,6 +1,6 @@
 resource "aws_subnet" "private" {
   vpc_id     = data.aws_vpc.vpc.id
-  cidr_block = "10.0.117.0/24"
+  cidr_block = "10.0.171.0/24"
 
   tags = {
     Name = "Private"
@@ -11,7 +11,7 @@ resource "aws_route_table" "route_table1" {
   vpc_id = data.aws_vpc.vpc.id
 
   route {
-    cidr_block = "10.0.117.0/24"
+    cidr_block = "10.0.171.0/24"
    
   }
 
@@ -20,7 +20,7 @@ resource "aws_route_table" "route_table1" {
   }
 }
 
-resource "aws_route_table_association" "privateRT_with_private" {
+resource "aws_route_table_association" "privateRT_with_private1" {
   subnet_id      = aws_subnet.private.id
   route_table_id = aws_route_table.route_table1.id
 }
