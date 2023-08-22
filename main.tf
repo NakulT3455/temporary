@@ -36,8 +36,8 @@ resource "aws_route" "nat_gateway_route" {
 
 
 
-resource "aws_security_group" "example" {
-  name_prefix = "example-sg"
+resource "aws_security_group" "example01" {
+  name_prefix = "example-sg01"
   vpc_id =  data.aws_vpc.vpc.id
 
   ingress {
@@ -71,7 +71,7 @@ resource "aws_lambda_function" "lambda" {
     
   vpc_config {
     subnet_ids = [aws_subnet.private.id]
-    security_group_ids = [aws_security_group.example.id]
+    security_group_ids = [aws_security_group.example01.id]
   }
 
   
