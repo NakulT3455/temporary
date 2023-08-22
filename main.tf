@@ -71,17 +71,12 @@ resource "aws_lambda_function" "lambda" {
     security_group_ids = [aws_security_group.example01.id]
   }
 
+  environment {
+  variable = {
+    subnetId= "${aws_subnet.private.id}"
+  }
   
 }
-
-output "subnet_id" {
-  description = "private subnet ID"
-  value       = aws_subnet.private.id
-  
-}
-resource "local_file" "output" {
-    content  = aws_subnet.private.id
-    filename = "output.txt"
 }
 
 
