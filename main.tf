@@ -16,7 +16,7 @@ resource "aws_route_table" "route_table1" {
   }
 
   tags = {
-    Name = "route-table"
+    Name = "route-table 01"
   }
 }
 
