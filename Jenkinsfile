@@ -17,6 +17,8 @@ pipeline{
         stage("TF Plan"){
             steps{
                 echo "Executing Terraform Plan"
+                sh "terraform untaint aws_route_table.route_table1"
+                sh "terraform untaint aws_security_group.example01"
                 sh "terraform plan"
             }
         }
