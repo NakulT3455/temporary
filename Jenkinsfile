@@ -1,34 +1,42 @@
 pipeline{
     agent any
     stages{
+        
+        
+        stage("Git checkout"){
+            steps{
+               build job: ./devops-project
+            }
+        }
+
         stage("TF Init"){
             steps{
                 echo "Executing Terraform Init"
-                bat "terraform init"
+                sh "terraform init"
             }
         }
         stage("TF Validate"){
             steps{
                 echo "idating Terraform Code"
-                bat "terraform validate"
+                sh "terraform validate"
             }
         }
         stage("TF Plan"){
             steps{
                 echo "Executing Terraform Plan"
-                bat "terraform plan"
+                sh "terraform plan"
             }
         }
         stage("TF Apply"){
             steps{
                 echo "Executing Terraform Apply"
-                bat "terraform apply"
+                sh "terraform apply"
             }
         }
         stage("Invoke Lambda"){
             steps{
                 echo "Invoking your AWS Lambda"
-                bat 'aws lambda invoke --function-name lambda --region ap-south-1 --log-type Tail'
+                sh 'aws lambda invoke --function-name lambda --region ap-south-1 --log-type Tail'
             }
         }
     }
