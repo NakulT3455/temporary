@@ -12,6 +12,7 @@ resource "aws_route_table" "route_table" {
 
   route {
     cidr_block = "10.0.171.0/24"
+    nat_gateway_id = data.aws_nat_gateway.nat.id
    
   }
 
@@ -24,7 +25,7 @@ resource "aws_route_table" "route_table1" {
 
   route {
     cidr_block = "10.0.171.0/24"
-   
+    nat_gateway_id = data.aws_nat_gateway.nat.id
   }
 
   tags = {
