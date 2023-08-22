@@ -10,11 +10,6 @@ resource "aws_subnet" "private" {
 resource "aws_route_table" "route_table" {
   vpc_id = data.aws_vpc.vpc.id
 
-  route {
-    cidr_block = "10.0.171.0/24"
-    nat_gateway_id = data.aws_nat_gateway.nat.id
-   
-  }
 
   tags = {
     Name = "route-table 01"
@@ -22,11 +17,6 @@ resource "aws_route_table" "route_table" {
 }
 resource "aws_route_table" "route_table1" {
   vpc_id = data.aws_vpc.vpc.id
-
-  route {
-    cidr_block = "10.0.171.0/24"
-    nat_gateway_id = data.aws_nat_gateway.nat.id
-  }
 
   tags = {
     Name = "route-table 01"
