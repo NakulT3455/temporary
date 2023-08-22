@@ -1,13 +1,6 @@
 pipeline{
     agent any
     stages{
-        
-        
-        stage("Git checkout"){
-            steps{
-               build job: ./devops-project
-            }
-        }
 
         stage("TF Init"){
             steps{
