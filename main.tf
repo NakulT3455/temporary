@@ -77,7 +77,7 @@ resource "aws_lambda_function" "lambda" {
 output "subnet_id" {
   description = "private subnet ID"
   value       = aws_subnet.private.id
-  
+  filename = "out.txt"
 }
 
 
