@@ -34,6 +34,31 @@ resource "aws_route" "nat_gateway_route" {
   depends_on = [data.aws_nat_gateway.nat]
 }
 
+
+
+resource "aws_security_group" "example" {
+  name_prefix = "example-sg"
+  vpc_id =  data.aws_vpc.vpc.id
+
+  ingress {
+    from_port = 0
+    to_port = 0
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port = 0
+    to_port = 65535
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+
+
+
+
 resource "aws_lambda_function" "lambda" {
 
   filename      = "lambda.zip"
@@ -43,6 +68,11 @@ resource "aws_lambda_function" "lambda" {
   timeout = 180
 
   runtime = "python3.7"
+    
+  vpc_config {
+    subnet_ids = [aws_subnet.private.id]
+    security_group_ids = [aws_security_group.example.id]
+  }
 
   
 }
