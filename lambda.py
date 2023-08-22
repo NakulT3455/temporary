@@ -3,6 +3,7 @@ import os
 import json
 import boto3
 import base64
+from out.txt import *
 
 def lambda_handler(event, context):
 
