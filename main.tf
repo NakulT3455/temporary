@@ -58,10 +58,10 @@ resource "aws_security_group" "example01" {
 
 resource "aws_lambda_function" "lambda1" {
 
-  filename      = "lambda.zip"
+  filename      = "lambda1.zip"
   function_name = "lambda1"
   role          = data.aws_iam_role.lambda.arn
-  handler       = "lambda.lambda_handler"
+  handler       = "lambda1.lambda_handler"
   timeout = 180
 
   runtime = "python3.7"
