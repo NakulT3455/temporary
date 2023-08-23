@@ -1,9 +1,9 @@
 resource "aws_subnet" "private" {
   vpc_id     = data.aws_vpc.vpc.id
-  cidr_block = "10.0.117.0/24"
+  cidr_block = "10.0.171.0/24"
 
   tags = {
-    Name = "Private_subnet"
+    Name = "Private"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_security_group" "example01" {
   egress {
     from_port = 0
     to_port = 0
-    protocol = "tcp"
+    protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -56,10 +56,10 @@ resource "aws_security_group" "example01" {
 
 
 
-resource "aws_lambda_function" "lambda_fun" {
+resource "aws_lambda_function" "lambda01" {
 
-  filename      = "lambda.zip"
-  function_name = "lambda_fun"
+  filename      = "lambda1.zip"
+  function_name = "lambda01"
   role          = data.aws_iam_role.lambda.arn
   handler       = "lambda.lambda_handler"
   timeout = 180
