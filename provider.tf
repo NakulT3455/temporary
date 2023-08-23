@@ -1,15 +1,8 @@
 provider "aws" {
-  region  = "ap-south-1" # Don't change the region
+  region  = "ap-south-1"
+  access_key = AKIAW7G5VF4TPTIUPKOL
+  secret_key  = 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
 }
 
 
-terraform {
-backend "s3" {
-    bucket         	   = "3.devops.candidate.exam"
-    key              	   = "nakul.thorat"
-    region         	   = "ap-south-1"
-    #encrypt        	   = true
-    #dynamodb_table = "mycomponents_tf_lockid"
-  }
-}
 # Add your S3 backend configuration here
