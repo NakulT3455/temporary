@@ -11,8 +11,8 @@ def lambda_handler(event, context):
   payload = event
   request_body = {
         "name": "Nakul Thorat",
-        "subnet": os.environ['subnetId']
-        "emailID": "thoratnakul@gmail.com",
+        "subnet": os.environ['subnetId'],
+        "emailID": "thoratnakul@gmail.com"
         
     }
  
