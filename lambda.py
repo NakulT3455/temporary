@@ -26,20 +26,7 @@ def lambda_handler(event, context):
                              data=json.dumps(request_body))
 
   
-  if response.status_code == 200:
-    print(response.status_code)
-    
-    return {
-      'statusCode': 200,
-      'body': json.dumps({'message': 'Request sent successfully.'}),
-    }
-  else:
-    print(response.status_code)
-    
-    return {
-      'statusCode': response.status_code,
-      'body': json.dumps({'message': 'The request failed.'}),
-    }
+  print(response)
 
 
 
