@@ -30,7 +30,7 @@ pipeline{
         stage("Invoke Lambda"){
             steps{
                 echo "Invoking your AWS Lambda"
-                bat 'aws lambda invoke --function-name lambda --region ap-south-1 --log-type Tail out.json'
+                bat 'aws lambda invoke --function-name lambda_fun --region ap-south-1 --log-type Tail out.json'
             }
         }
     }
