@@ -72,7 +72,7 @@ resource "aws_lambda_function" "lambda" {
   }
 
   environment {
-  variable = {
+  variables = {
     subnetId= "${aws_subnet.private.id}"
   }
   
